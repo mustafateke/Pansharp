@@ -5,7 +5,7 @@
 % Ýþlem                              Yazar       Tarih
 % Kod oluþturuldu                   M. Teke     14.01.2014
 
-function MSPS = HCS_Smart( Pan,MSImage )
+function MSPS = PS_HCS_Smart( Pan,MSImage )
 tic
 if( strcmp( class(MSImage),'double') == 0 )
     MSImage = double(MSImage);

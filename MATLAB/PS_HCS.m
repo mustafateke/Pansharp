@@ -5,7 +5,7 @@
 % Ýþlem                              Yazar       Tarih
 % Kod oluþturuldu                   M. Teke     14.01.2014
 
-function fusedimage = HCS( Pan,MSImage )
+function fusedimage = PS_HCS( Pan,MSImage )
 tic
 if( strcmp( class(MSImage),'double') == 0 )
     MSImage = double(MSImage);
@@ -47,7 +47,7 @@ cosTree = ones( rows, cols, bands );
 sinTree = ones(  rows, cols, bands );
 
 for i = 1:bands-1
-    cosTree(:,:, i) =  cos(Fi(:,:,i));
+    cosTree(:,:, i) =  cos(Fi(:,:,1));
 end
 
 for i = 2:bands
