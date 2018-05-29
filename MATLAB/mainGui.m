@@ -316,6 +316,7 @@ global adreskontrol;
 global rgbadreskontrol;
 global eskiUSState;
 global isUSStateChanged;
+global Pansharp8Bit;
 
 Kontrast = get(handles.KontrastSecim,'Value');
 set(handles.pushbuttonHesapla,'Enable','off');
@@ -868,7 +869,7 @@ function pansharpSave_Callback(hObject, eventdata, handles)
 % hObject    handle to pansharpSave (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global Pansharp8bit;
+% global Pansharp8bit;
 global yol;
 [filename pathname] = uiputfile({'*.tif';'*.jpeg';'*.jpg';'*.png';'*.bmp'},'Kaydet',yol);
 id = [pathname filename];
@@ -876,7 +877,9 @@ if(pathname~=0)
     yol = pathname;
 end
 if(filename ~= 0)
-    imwrite(Pansharp8bit,id);
+    Pansharp8Bit = getappdata(0,'Pansharp8Bit');
+    imwrite(Pansharp8Bit,id);
+    
     set(handles.Pansharp8bitKayit,'String',id);
     set(handles.Pansharp8bitKayit,'Enable','inactive');
 end
